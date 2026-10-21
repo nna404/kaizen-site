@@ -1,0 +1,754 @@
+/* ==========================================================================
+   TEMA HALLOWEEN — preto, branco e vermelho
+
+   Como usar: carregue DEPOIS do styles.css
+   <link rel="stylesheet" href="styles.css">
+   <link rel="stylesheet" href="halloween.css">
+
+   Para voltar ao visual original, é só remover a segunda linha.
+   ========================================================================== */
+
+/* ==========================================================================
+   PALETA
+   ========================================================================== */
+
+/* ==========================================================================
+   PALETA - ALTO CONTRASTE
+   ========================================================================== */
+
+:root {
+  /* Pretos (fundos) - Mais profundos e neutros */
+  --hw-black:       #000000;  /* Preto absoluto */
+  --hw-coal:        #0a0a0a;  /* Quase preto para quebrar a seção, sem tom de vermelho */
+  --hw-crypt:       #111111;  /* Cinza extremamente escuro para os cards */
+
+  /* Vermelhos (destaques) - Extrema vibração */
+  --hw-blood:       #d90429;  /* Vermelho primário muito intenso */
+  --hw-blood-light: #ff0022;  /* Vermelho "neon" que salta na tela contra o preto */
+  --hw-blood-dark:  #8a031a;  /* Bordas mais claras que o vinho anterior para marcar melhor */
+
+  /* Brancos (textos) - Contraste absoluto */
+  --hw-bone:        #ffffff;  /* Branco puro (máximo contraste com fundo preto) */
+  --hw-ash:         #cccccc;  /* Cinza claro para textos de apoio e descrições */
+  --hw-smoke:       #999999;  /* Cinza médio para rodapé e meta-tags */
+
+  /* Remapeia as variáveis do styles.css para a nova paleta */
+  --paper: var(--hw-coal);
+  --white: var(--hw-black);
+  --ink:   var(--hw-bone);
+  --muted: var(--hw-ash);
+  --gold:  var(--hw-blood-light);
+  --line:  var(--hw-blood-dark);
+}
+/* ==========================================================================
+   TIPOGRAFIA - ESTÉTICA JAPONESA / URBANA
+   ========================================================================== */
+:root {
+  /* Fonte tradicional para títulos e elementos de destaque */
+  --hw-font-jp: 'Shippori Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Noto Serif JP', serif;
+  
+  /* Fonte moderna/urbana para leitura e parágrafos */
+  --hw-font-urban: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+}
+
+/* Aplica a fonte urbana no corpo do texto */
+body {
+  font-family: var(--hw-font-urban);
+}
+
+/* Aplica a fonte japonesa nos títulos, logo e destaques */
+h1, h2, h3, h4, h5, h6, .wordmark, .section-kicker, .eyebrow, .manifesto-text {
+  font-family: var(--hw-font-jp);
+  letter-spacing: 0.05em; /* Dá um leve respiro, típico de design japonês */
+}
+
+/* Ajuste específico para o título principal ficar bem imponente */
+h1 {
+  font-weight: 650;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* Os pequenos rótulos vermelhos ficam melhores mais "duros" e modernos */
+.eyebrow, .section-kicker {
+  font-family: var(--hw-font-urban);
+  font-weight: 650;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   BASE
+   ========================================================================== */
+
+body {
+  background: var(--hw-black);
+}
+
+::selection {
+  background: var(--hw-blood);
+  color: var(--hw-bone);
+}
+
+
+/* ==========================================================================
+   TOPO (HEADER)
+   ========================================================================== */
+
+header {
+  background: rgba(0, 0, 0, 0.92);
+  border-bottom: 1px solid var(--hw-blood);
+  box-shadow: 0 1px 18px rgba(193, 18, 31, 0.25);
+}
+
+.wordmark {
+  text-shadow: 0 0 12px rgba(229, 37, 42, 0.45);
+}
+
+
+/* ==========================================================================
+   HERO
+   ========================================================================== */
+
+h1 {
+  text-shadow:
+    0 0 2px rgba(229, 37, 42, 0.55),
+    0 0 2px rgba(193, 18, 31, 0.35);
+}
+
+.cta {
+  border-color: var(--hw-blood-light);
+  color: var(--hw-bone);
+}
+
+.cta:hover {
+  background: var(--hw-blood);
+  border-color: var(--hw-blood);
+  color: var(--hw-bone);
+  box-shadow: 0 0 22px rgba(229, 37, 42, 0.55);
+}
+
+
+/* ==========================================================================
+   SOBRE E VALORES
+   ========================================================================== */
+
+.about {
+  background: var(--hw-coal);
+}
+
+.value {
+  background: rgba(193, 18, 31, 0.06);
+}
+
+.value h3 {
+  color: var(--hw-bone);
+}
+
+
+/* ==========================================================================
+   DIVISORES
+   ========================================================================== */
+
+.section-divider {
+  background: var(--hw-coal);
+}
+
+.section-divider::before,
+.section-divider::after {
+  background: linear-gradient(90deg, transparent, var(--hw-blood), transparent);
+}
+
+
+/* ==========================================================================
+   COLEÇÃO
+   ========================================================================== */
+
+.collection {
+  background: var(--hw-black);
+}
+
+.gender-title .number {
+  text-shadow: 0 0 14px rgba(229, 37, 42, 0.5);
+}
+
+.product-gallery {
+  background: var(--hw-crypt);
+  border: 1px solid var(--hw-blood-dark);
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.product-card:hover .product-gallery {
+  border-color: var(--hw-blood);
+  box-shadow: 0 0 26px rgba(193, 18, 31, 0.35);
+}
+
+/* Setas */
+
+.arrow {
+  border: 1px solid var(--hw-blood);
+  background: rgba(0, 0, 0, 0.75);
+  color: var(--hw-bone);
+}
+
+.arrow:hover {
+  background: var(--hw-blood);
+  color: var(--hw-bone);
+}
+
+/* Dots */
+
+.dot {
+  background: #4a3a3a;
+}
+
+.dot.active {
+  background: var(--hw-blood-light);
+  box-shadow: 0 0 8px rgba(229, 37, 42, 0.8);
+}
+
+/* Informações do produto */
+
+.product-info h3 {
+  color: var(--hw-bone);
+}
+
+.tags {
+  color: var(--hw-ash);
+}
+
+
+/* ==========================================================================
+   MANIFESTO
+   ========================================================================== */
+
+.manifesto {
+  background: var(--hw-coal);
+  border-color: var(--hw-blood-dark);
+}
+
+.manifesto blockquote {
+  color: var(--hw-bone);
+  text-shadow: 0 0 24px rgba(193, 18, 31, 0.4);
+}
+
+
+/* ==========================================================================
+   INSTAGRAM
+   ========================================================================== */
+
+.instagram-section {
+  background: var(--hw-black);
+}
+
+.instagram-section .handle {
+  color: var(--hw-bone);
+}
+
+
+/* ==========================================================================
+   RODAPÉ
+   ========================================================================== */
+
+footer {
+  background: var(--hw-black);
+  border-top: 1px solid var(--hw-blood);
+  color: var(--hw-smoke);
+}
+
+
+/* ==========================================================================
+   ANIMAÇÃO: brilho "tremulando" como vela (opcional)
+   ========================================================================== */
+
+@keyframes hw-flicker {
+  0%, 100% { opacity: 1; }
+  45%      { opacity: 1; }
+  48%      { opacity: 0.82; }
+  52%      { opacity: 1; }
+  78%      { opacity: 0.9; }
+  80%      { opacity: 1; }
+}
+
+h1,
+.wordmark {
+  animation: hw-flicker 5s infinite;
+}
+
+/* Respeita quem prefere menos movimento */
+@media (prefers-reduced-motion: reduce) {
+  h1,
+  .wordmark {
+    animation: none;
+  }
+}
+
+
+/* ==========================================================================
+   ESTÉTICA JAPONESA — KAIZEN (改善 = "mudar para melhor")
+
+   Paleta tradicional japonesa:
+   - 墨 sumi  (tinta preta)   -> os pretos
+   - 朱 shu   (vermelho torii) -> os vermelhos
+   - 白 shiro (branco papel)   -> o branco osso
+   ========================================================================== */
+
+/* Detalhe vermelho antes dos rótulos de seção (como um selo pequeno) */
+
+.eyebrow::before,
+.section-kicker::before {
+  content: "";
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  background: var(--hw-blood-light);
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+/* Kanji ao lado do logo no topo */
+
+.wordmark::after {
+  content: "改善";
+  font-family: var(--hw-font-jp);
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: var(--hw-blood-light);
+  margin-left: 14px;
+  vertical-align: middle;
+  text-shadow: none;
+}
+
+/* Hero: sol vermelho (hinomaru) e kanji vertical ao fundo */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  right: -6%;
+  top: 50%;
+  width: min(52vw, 500px);
+  aspect-ratio: 1;
+  transform: translateY(-50%);
+  border-radius: 50%;
+ 
+  pointer-events: none;
+}
+
+.hero::after {
+  content: "改善";
+  position: absolute;
+  right: 2%; /* Traz o kanji de volta para dentro da tela */
+  top: 50%;
+  transform: translateY(-50%);
+  writing-mode: vertical-rl;
+  font-family: var(--hw-font-jp);
+  font-size: clamp(70px, 10vw, 150px);
+  letter-spacing: 0.1em;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(245, 241, 234, 0.15);
+  pointer-events: none;
+}
+
+/* Galeria: cantos em "L" vermelhos, como moldura de papel japonês */
+
+.product-gallery::before,
+.product-gallery::after {
+  content: "";
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  pointer-events: none;
+  z-index: 2;
+  transition: width 0.3s, height 0.3s;
+}
+
+.product-gallery::before {
+  top: 10px;
+  left: 10px;
+  border-top: 2px solid var(--hw-blood-light);
+  border-left: 2px solid var(--hw-blood-light);
+}
+
+.product-gallery::after {
+  bottom: 10px;
+  right: 10px;
+  border-bottom: 2px solid var(--hw-blood-light);
+  border-right: 2px solid var(--hw-blood-light);
+}
+
+.product-card:hover .product-gallery::before,
+.product-card:hover .product-gallery::after {
+  width: 36px;
+  height: 36px;
+}
+
+/* Manifesto: carimbo vermelho (hanko) com o kanji 改 */
+
+.manifesto {
+  position: relative;
+  overflow: hidden;
+}
+
+.manifesto::after {
+  content: "改";
+  position: absolute;
+  right: max(4%, calc((100% - var(--max)) / 2));
+  bottom: 56px;
+  width: 78px;
+  height: 78px;
+  display: grid;
+  place-items: center;
+  background: var(--hw-blood);
+  color: var(--hw-bone);
+  font-family: var(--hw-font-jp);
+  font-size: 46px;
+  line-height: 1;
+  border-radius: 6px;
+  transform: rotate(6deg);
+  box-shadow: 0 0 22px rgba(229, 37, 42, 0.45);
+  opacity: 0.92;
+  pointer-events: none;
+}
+
+/* Mobile */
+
+@media (max-width: 760px) {
+  .wordmark::after {
+    display: none;
+  }
+
+  .hero::before {
+    right: 50%;
+    top: 30%;
+    width: 90vw;
+    transform: translate(50%, -50%);
+    opacity: 0.7;
+  }
+
+  .hero::after {
+    display: none;
+  }
+
+  .manifesto::after {
+    width: 54px;
+    height: 54px;
+    font-size: 32px;
+    right: 6%;
+    bottom: 14px;
+  }
+}
+
+/* ==========================================================================
+   LOGO E ALINHAMENTO HERO (DESKTOP)
+   ========================================================================== */
+
+.hero {
+  isolation: isolate;
+}
+
+.hero::before,
+.hero::after {
+  z-index: -1;
+}
+
+.hero-inner {
+  z-index: auto;
+  align-items: center; /* Garante que o logo e o texto fiquem alinhados ao meio */
+}
+
+.brand-logo {
+  display: block;
+  margin: 0 auto; /* Centraliza o logo na sua própria coluna */
+  width: 100%;
+  max-width: 260px; /* Ligeiramente maior para fazer frente ao peso do título */
+}
+
+/* Ajuste da grelha para ecrãs de computador */
+@media (min-width: 761px) {
+  .hero-inner {
+    /* Define uma largura fixa para a coluna do logo, aproximando-o do texto com um respiro elegante */
+    grid-template-columns: 280px 1fr; 
+    gap: 70px;
+  }
+}
+
+/* ==========================================================================
+   DESTAQUE: DROP HALLOWEEN (MEGA H1)
+   ========================================================================== */
+
+#halloween {
+  padding-top: 40px; 
+}
+
+.halloween-mega-title {
+  font-size: clamp(55px, 9vw, 110px) !important;
+  line-height: 0.9 !important;
+  margin-top: 15px;
+  text-transform: uppercase;
+  letter-spacing: 2px !important;
+}
+
+
+/* ==========================================================================
+   LINKS DOS CARDS (index)
+   ========================================================================== */
+
+.product-info h3 a {
+  color: inherit;
+  transition: color 0.2s;
+}
+
+.product-info h3 a:hover {
+  color: var(--hw-blood-light);
+}
+
+.product-link {
+  display: inline-block;
+  margin-top: 16px;
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--hw-blood-light);
+  border-bottom: 1px solid var(--hw-blood-light);
+  padding-bottom: 3px;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.product-link:hover {
+  color: var(--hw-bone);
+  border-color: var(--hw-bone);
+}
+
+
+/* ==========================================================================
+   PÁGINA DE PRODUTO (tema escuro)
+   ========================================================================== */
+
+.pd-back {
+  display: inline-block;
+  margin-top: 30px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--hw-ash);
+  transition: color 0.2s;
+}
+
+.pd-back:hover {
+  color: var(--hw-blood-light);
+}
+
+.product-page-image #pd-imagem {
+  background: var(--hw-crypt);
+  border: 1px solid var(--hw-blood-dark);
+  border-radius: 0;
+  object-fit: contain;
+  aspect-ratio: 4 / 5;
+  display: block;
+}
+
+.pd-thumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.pd-thumb {
+  width: 72px;
+  height: 90px;
+  padding: 0;
+  background: var(--hw-crypt);
+  border: 1px solid var(--hw-blood-dark);
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.pd-thumb:hover,
+.pd-thumb.active {
+  border-color: var(--hw-blood-light);
+}
+
+.pd-thumb.active {
+  box-shadow: 0 0 12px rgba(229, 37, 42, 0.45);
+}
+
+.product-page-image .pd-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: none;
+  border-radius: 0;
+  aspect-ratio: auto;
+  display: block;
+}
+
+.product-page-details h1 {
+  animation: none;
+}
+
+.pd-installment {
+  color: var(--hw-ash);
+}
+
+.size-btn {
+  color: var(--hw-bone);
+  border-color: var(--hw-blood-dark);
+}
+
+.size-btn:hover {
+  color: var(--hw-blood-light);
+  border-color: var(--hw-blood-light);
+}
+
+.size-btn.selected {
+  background: var(--hw-blood);
+  border-color: var(--hw-blood);
+  color: var(--hw-bone);
+  box-shadow: 0 0 14px rgba(229, 37, 42, 0.45);
+}
+
+.pd-aviso {
+  color: var(--hw-blood-light);
+  font-size: 13px;
+  margin: -12px 0 20px;
+}
+
+.info-card {
+  background: var(--hw-crypt);
+  color: var(--hw-ash);
+  border-color: var(--hw-blood-dark);
+}
+
+.add-to-cart-btn {
+  background: var(--hw-blood);
+  color: var(--hw-bone);
+}
+
+.add-to-cart-btn:hover {
+  opacity: 1;
+  background: var(--hw-blood-light);
+  box-shadow: 0 0 22px rgba(229, 37, 42, 0.55);
+}
+
+.add-to-cart-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+
+/* ==========================================================================
+   CARRINHO (menu lateral)
+   ========================================================================== */
+
+#cart-menu {
+  overflow-y: auto;
+}
+
+.cart-list {
+  list-style: none;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.cart-item {
+  display: grid;
+  grid-template-columns: 64px 1fr auto;
+  gap: 14px;
+  align-items: start;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--hw-blood-dark);
+}
+
+.cart-item img {
+  width: 64px;
+  height: 80px;
+  object-fit: contain;
+  background: var(--hw-crypt);
+  border: 1px solid var(--hw-blood-dark);
+}
+
+.cart-info strong {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.cart-info > span {
+  display: block;
+  font-size: 12px;
+  color: var(--hw-ash);
+  line-height: 1.6;
+}
+
+.cart-qty {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  font-size: 13px;
+}
+
+.cart-qty button {
+  width: 26px;
+  height: 26px;
+  background: transparent;
+  border: 1px solid var(--hw-blood-dark);
+  color: var(--hw-bone);
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.cart-qty button:hover {
+  border-color: var(--hw-blood-light);
+}
+
+.cart-remove {
+  background: none;
+  border: 0;
+  color: var(--hw-smoke);
+  cursor: pointer;
+  font-size: 16px;
+  transition: color 0.2s;
+}
+
+.cart-remove:hover {
+  color: var(--hw-blood-light);
+}
+
+.cart-total {
+  display: flex;
+  justify-content: space-between;
+  margin: 24px 0 6px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.cart-checkout {
+  width: 100%;
+  margin-top: 18px;
+  background: var(--hw-blood);
+  border-color: var(--hw-blood);
+  color: var(--hw-bone);
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.cart-checkout:hover {
+  background: var(--hw-blood-light);
+  border-color: var(--hw-blood-light);
+}

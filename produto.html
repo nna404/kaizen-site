@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Produto — KAIZEN</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="halloween.css">
+<script src="halloween.js" defer></script>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a class="wordmark" href="index.html#inicio">KAIZEN</a>
+    
+    <nav class="nav-categories">
+      <a href="index.html#moletons">Moletons</a>
+      <a href="index.html#calcas">Calças</a>
+      <a href="index.html#camisetas">Camisetas</a>
+      <a href="index.html#conjuntos">Conjuntos</a>
+    </nav>
+    
+    <div class="nav-actions">
+      <!-- Ícone Pesquisa -->
+      <button class="icon-btn" aria-label="Pesquisar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      </button>
+
+      <!-- Ícone Favoritos -->
+      <button class="icon-btn" aria-label="Favoritos">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+        <span class="badge">0</span>
+      </button>
+      
+      <!-- Ícone Carrinho -->
+      <button class="icon-btn" aria-label="Carrinho">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+        <span class="badge">0</span>
+      </button>
+
+      <!-- Botão Hambúrguer -->
+      <button class="hamburger-btn" id="open-menu" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Barra de Pesquisa Integrada no Header -->
+  <div class="search-bar-overlay" id="search-bar-overlay">
+    <div class="container search-bar-inner">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="search-icon-inside"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      <input type="text" id="search-input" placeholder="Buscar peças, coleções..." aria-label="Campo de pesquisa">
+      <button class="close-search" id="close-search" aria-label="Fechar pesquisa">✕</button>
+    </div>
+  </div>
+</header>
+
+<!-- Overlay Escuro Geral -->
+<div class="menu-overlay" id="menu-overlay"></div>
+
+<!-- 1. Menu Lateral: Navegação Geral -->
+<aside class="side-menu" id="side-menu">
+  <button class="close-btn" id="close-menu" aria-label="Fechar menu">✕</button>
+  <nav class="side-nav">
+    <a href="index.html#halloween" class="side-link" style="color: var(--gold); text-shadow: 0 0 10px rgba(229,37,42,0.3);">Drop Halloween</a>
+    <a href="index.html#colecao" class="side-link">Coleção 01</a>
+    <a href="index.html#manifesto" class="side-link">Manifesto</a>
+    
+    <div class="side-menu-section">
+      <div class="side-link-title">Quem Somos</div>
+      <p class="side-menu-intro">Transformamos referências orientais e linguagem urbana em peças de expressão e autenticidade.</p>
+    </div>
+  </nav>
+  <a href="https://www.instagram.com/kaizenva2026?igsh=aXo5OWhwcmZ4YXd1" class="side-link instagram" target="_blank" rel="noopener">@kaizenva2026</a>
+</aside>
+
+<!-- 2. Menu Lateral: Carrinho -->
+<aside class="side-menu" id="cart-menu">
+  <button class="close-btn" id="close-cart" aria-label="Fechar carrinho">✕</button>
+  <div class="side-menu-section" style="margin-top: 0; border: none; padding-top: 0;">
+    <div class="side-link-title">Seu Carrinho</div>
+    <p class="side-menu-intro" style="margin-top: 20px;">O seu carrinho está vazio no momento.</p>
+    <a class="cta" href="index.html#colecao" id="continue-shop-cart" style="display: block; text-align: center; margin-top: 30px;">Explorar Coleção</a>
+  </div>
+</aside>
+
+<!-- 3. Menu Lateral: Favoritos -->
+<aside class="side-menu" id="fav-menu">
+  <button class="close-btn" id="close-fav" aria-label="Fechar favoritos">✕</button>
+  <div class="side-menu-section" style="margin-top: 0; border: none; padding-top: 0;">
+    <div class="side-link-title">Favoritos</div>
+    <p class="side-menu-intro" style="margin-top: 20px;">Você ainda não salvou nenhuma peça.</p>
+    <a class="cta" href="index.html#colecao" id="continue-shop-fav" style="display: block; text-align: center; margin-top: 30px;">Ver Produtos</a>
+  </div>
+</aside>
+
+<main>
+  <div class="container">
+    <a class="pd-back" href="index.html#colecao">← Voltar à coleção</a>
+  </div>
+
+  <div class="container product-page">
+
+    <!-- Lado esquerdo: imagem principal + miniaturas -->
+    <div class="product-page-image">
+      <img id="pd-imagem" src="" alt="Imagem do produto">
+      <div id="pd-miniaturas" class="pd-thumbs"></div>
+    </div>
+
+    <!-- Lado direito: detalhes -->
+    <div class="product-page-details">
+      <h1 id="pd-titulo">Carregando...</h1>
+
+      <div class="pd-price-box">
+        <span id="pd-preco" class="pd-price">R$ --,--</span>
+        <span id="pd-installment" class="pd-installment">ou 12x de <span id="pd-parcela">R$ --,--</span></span>
+      </div>
+
+      <p id="pd-descricao" class="pd-desc">...</p>
+
+      <!-- Seleção de tamanhos -->
+      <div class="pd-sizes">
+        <p class="size-label">Tamanho: <span id="pd-tamanho-escolhido">Escolha</span></p>
+        <div class="size-options">
+          <button type="button" class="size-btn">P</button>
+          <button type="button" class="size-btn">M</button>
+          <button type="button" class="size-btn">G</button>
+          <button type="button" class="size-btn">GG</button>
+          <button type="button" class="size-btn">XG</button>
+        </div>
+      </div>
+
+      <p id="pd-aviso" class="pd-aviso" hidden>Escolha um tamanho para continuar.</p>
+
+      <!-- Frete / informações extras -->
+      <div class="pd-info-cards">
+        <div class="info-card">🚚 Frete grátis para todo o Brasil</div>
+        <div class="info-card">⚡ Envio em até 48h úteis</div>
+      </div>
+
+      <button type="button" id="pd-comprar" class="add-to-cart-btn">ADICIONAR AO CARRINHO</button>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="container footer">
+    <strong>KAIZEN</strong>
+    <span>ESPECIAL HALLOWEEN · EVOLUÇÃO EM CADA DETALHE · © 2026</span>
+  </div>
+</footer>
+
+<!-- A ordem importa: dados -> carrinho -> menus -> página -->
+<script src="produtos.js"></script>
+<script src="carrinho.js"></script>
+<script src="menus.js"></script>
+<script src="produto.js"></script>
+</body>
+</html>
